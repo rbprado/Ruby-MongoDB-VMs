@@ -19,33 +19,41 @@ name and after the name is provided it will say:
 The information about which users have used the program should be
 stored in the database.
 
-## Initial Requirements
+## Steps to run:
 
-### You will need:
+### Initial Requirements:
 
   * Vagrant v1.6.5 + (http://vagrantup.com)
   * Virtualbox v4.3.10 + (https://www.virtualbox.org/)
 
-### Clone this repositoriy with submodules (they are puppet submodules)
+### Tutorial:
+    
+You have to run the following commands:
+    
+    vagrant up
+
     Bringing machine 'mongodb' up with 'virtualbox' provider...
     Bringing machine 'develop' up with 'virtualbox' provider...
     ==> mongodb: Importing base box 'ubuntu/trusty32'...
+
     [...]
+
+    vagrant ssh develop
 
 ### Access to the VMs
 
-    The following commands grants access to the VMs:
+The following commands grants access to the VMs:
 
-    Ruby-MongoDB-VMs$ vagrant ssh mongodb
-    Ruby-MongoDB-VMs$ vagrant ssh develop
+    vagrant ssh mongodb
+    vagrant ssh develop
 
-    To access a VM from another, use ssh with "vagrant" user to the
-    configured IPs at the Vagrantfile.
+To access a VM from another, use ssh with "vagrant" user to the
+configured IPs at the Vagrantfile.
 
-    To access the VM mongodb:
+To access the VM mongodb:
     ssh vagrant@192.168.2.3
 
-    To access the VM develop:
+To access the VM develop:
     ssh vagrant@192.168.2.2
 
 
@@ -53,12 +61,13 @@ stored in the database.
 
 ## Notes
 
+The script greetings.rb executes query and insert to mongodb
+in another VM.
+
+The call to the script was put inside the .bashrc file of
+vagrant user of the develop VM.
+ 
+
 ---
-
-## Known issues
-
----
-
-## ToDo
 
 goal.t2t
