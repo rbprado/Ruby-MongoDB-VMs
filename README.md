@@ -1,5 +1,4 @@
-#VM mongodb - Ubuntu Trusty32 + MongoDB
-#VM develop - Ubuntu Trusty32 + Ruby and RVM installations
+# Vagrantfile for MongoDB VM and Ruby 2.2.3 VM
 
 This project uses Vagrant to mount and deploy a environment
 according the request of Paulo Schreiner from Instituto de
@@ -25,15 +24,19 @@ stored in the database.
 
   * Vagrant v1.6.5 + (http://vagrantup.com)
   * Virtualbox v4.3.10 + (https://www.virtualbox.org/)
+  * The port 27017 must be avaliable to mongodb VM.
+  * The IP 192.168.2.3 must be avaliable to mongodb VM.
+  * The IP 192.168.2.2 must be avaliable to develop VM.
 
 ### Tutorial:
     
-The vagrant up command can took 1 hour to run, according with
-your computational resources.
+NOTE: The command "vagrant up" can took 1 hour to run.
 
 Basicaly you have to run the following commands:
     
-    vagrant up
+    ~$ git clone https://github.com/rbprado/Ruby-MongoDB-VMs.git
+    ~$ cd Ruby-MongoDB-VMs
+    ~/Ruby-MongoDB-VMs$ vagrant up
 
     Bringing machine 'mongodb' up with 'virtualbox' provider...
     Bringing machine 'develop' up with 'virtualbox' provider...
@@ -41,23 +44,26 @@ Basicaly you have to run the following commands:
 
     [...]
 
-    vagrant ssh develop
+    ~/Ruby-MongoDB-VMs$ vagrant ssh develop
+    ~/Ruby-MongoDB-VMs$ /vagrant/greetings.rb
 
 ### Access to the VMs
 
 The following commands grants access to the VMs:
 
-    vagrant ssh mongodb
-    vagrant ssh develop
-
-To access a VM from another, use ssh with "vagrant" user to the
-configured IPs at the Vagrantfile.
-
 To access the VM mongodb:
+
+    vagrant ssh mongodb
+
+Or:
 
     ssh vagrant@192.168.2.3
 
 To access the VM develop:
+
+    vagrant ssh develop
+
+Or:
 
     ssh vagrant@192.168.2.2
 
@@ -65,11 +71,10 @@ To access the VM develop:
 
 ## Notes
 
-The script greetings.rb executes query and insert to mongodb
-in another VM.
+The script greetings.rb executes a query and an insert to
+mongodb in another VM.
 
-The call to the script was put inside the .bashrc file of
-vagrant user of the develop VM.
- 
+The greetings.rb script must be called from the develop VM
+according the Tutorial.
 
 ---

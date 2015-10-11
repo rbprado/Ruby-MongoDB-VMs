@@ -37,7 +37,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
          v.customize ['modifyvm', :id, '--memory', 1024]
         end
         develop.vm.provision :shell, :inline => 'if [[ ! -f /apt-get-run  ]]; then apt-get update && sudo touch /apt-get-run; fi'
-        develop.vm.provision :shell, :inline => 'echo "/vagrant/greetings.rb" >> /home/vagrant/.profile' # Ruby script called at the user login
         develop.vm.provision :shell, path: 'install-rvm.sh', args: 'stable', privileged: false # https://rvm.io/integration/vagrant
         develop.vm.provision :shell, path: 'install-ruby.sh', args: '1.9.3', privileged: false
         develop.vm.provision :shell, path: 'install-ruby.sh', args: '2.2.3', privileged: false # Latest ruby stable
