@@ -23,13 +23,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         end
         mongodb.vm.provision :shell, :inline => 'if [[ ! -f /apt-get-run ]]; then apt-get update && sudo touch /apt-get-run; fi'
         mongodb.vm.provision :shell, :inline => 'apt-get -y install mongodb-server'
-        mongodb.vm.provision :shell, path: "install-rvm.sh", args: "stable", privileged: false
-        mongodb.vm.provision :shell, path: "install-ruby.sh", args: "1.9.3", privileged: false
-        mongodb.vm.provision :shell, path: "install-ruby.sh", args: "2.2.3", privileged: false
-        mongodb.vm.provision :shell, :inline => 'gem install mongo' , privileged: false
-        #ongodb.vm.provision :shell, :inline => 'rvm --ruby-version use 2.2.3' , privileged: false
         mongodb.vm.provision :shell, :inline => 'sed -i s/"bind_ip = .*"/"bind_ip = 0.0.0.0"/ /etc/mongodb.conf'
-        mongodb.vm.provision :shell, :inline => 'echo "/vagrant/greetings.rb" >> /home/vagrant/.bashrc'
     end
 
     config.vm.define :develop do |develop| 
