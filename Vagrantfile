@@ -26,8 +26,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         mongodb.vm.provision :shell, path: "install-rvm.sh", args: "stable", privileged: false
         mongodb.vm.provision :shell, path: "install-ruby.sh", args: "1.9.3", privileged: false
         mongodb.vm.provision :shell, path: "install-ruby.sh", args: "2.2.3", privileged: false
-        mongodb.vm.provision :shell, :inline => 'rvm --default use ruby-1.9.3-p551', privileged: false
         mongodb.vm.provision :shell, :inline => 'gem install mongo' , privileged: false
+        #ongodb.vm.provision :shell, :inline => 'rvm --ruby-version use 2.2.3' , privileged: false
+        mongodb.vm.provision :shell, :inline => 'sed -i s/"bind_ip = .*"/"bind_ip = 0.0.0.0"/ /etc/mongodb.conf'
         mongodb.vm.provision :shell, :inline => 'echo "/vagrant/greetings.rb" >> /home/vagrant/.bashrc'
     end
 
@@ -44,8 +45,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         develop.vm.provision :shell, path: 'install-rvm.sh', args: 'stable', privileged: false # https://rvm.io/integration/vagrant
         develop.vm.provision :shell, path: 'install-ruby.sh', args: '1.9.3', privileged: false
         develop.vm.provision :shell, path: 'install-ruby.sh', args: '2.2.3', privileged: false # Latest ruby stable
-        develop.vm.provision :shell, :inline => 'rvm --default use ruby-1.9.3-p551', privileged: false # Using 1.9.3 due mongo gem
         develop.vm.provision :shell, :inline => 'gem install mongo', privileged: false
+        #develop.vm.provision :shell, :inline => 'rvm --ruby-version use 2.2.3' , privileged: false
     end
 
 end
