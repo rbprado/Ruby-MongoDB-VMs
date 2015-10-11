@@ -28,7 +28,10 @@ stored in the database.
 
 ### Tutorial:
     
-You have to run the following commands:
+The vagrant up command can took 1 hour to run, according with
+your computational resources.
+
+Basicaly you have to run the following commands:
     
     vagrant up
 
@@ -51,11 +54,12 @@ To access a VM from another, use ssh with "vagrant" user to the
 configured IPs at the Vagrantfile.
 
 To access the VM mongodb:
+
     ssh vagrant@192.168.2.3
 
 To access the VM develop:
-    ssh vagrant@192.168.2.2
 
+    ssh vagrant@192.168.2.2
 
 ---
 
@@ -69,5 +73,3 @@ vagrant user of the develop VM.
  
 
 ---
-
-goal.t2t
