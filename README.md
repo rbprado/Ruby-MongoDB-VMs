@@ -72,7 +72,7 @@ Or:
 ## Notes
 
 The script greetings.rb executes a query and an insert to
-mongodb in another VM.
+the database mongodb in another VM.
 
 The greetings.rb script must be called from the develop VM
 according the Tutorial.
