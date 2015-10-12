@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!file.README.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<h1 id="label-Vagrantfile+for+MongoDB+VM+and+Ruby+2.2.3+VM">Vagrantfile for MongoDB VM and Ruby 2.2.3 VM</h1>
+
+<p>This project uses Vagrant to mount and deploy a environment according the
+request of Paulo Schreiner from Instituto de Pesquisas Eldorado:</p>
+
+<p>The goal is to create a Vagrantfile that spins up two machines:</p>
+<ul><li>
+<p>Development machine, with the latest version of Ruby installed.</p>
+</li><li>
+<p>A second machine with a database of your choice.</p>
+</li></ul>
+
+<p>And a sample Ruby program that, when run, asks the user for his name and
+after the name is provided it will say:</p>
+
+<p>“Hello #user” if it&#39;s the first time this user runs the program, or
+“Welcome back, #user” if the user has been here before.</p>
+
+<p>The information about which users have used the program should be stored in
+the database.</p>
+
+<h2 id="label-Steps+to+run-3A">Steps to run:</h2>
+
+<h3 id="label-Initial+Requirements-3A">Initial Requirements:</h3>
+<ul><li>
+<p>Vagrant v1.6.5 + (<a href="http://vagrantup.com">vagrantup.com</a>)</p>
+</li><li>
+<p>Virtualbox v4.3.10 + (<a
+href="https://www.virtualbox.org">www.virtualbox.org</a>/)</p>
+</li><li>
+<p>The port 27017 must be avaliable to mongodb VM.</p>
+</li><li>
+<p>The IP 192.168.2.3 must be avaliable to mongodb VM.</p>
+</li><li>
+<p>The IP 192.168.2.2 must be avaliable to develop VM.</p>
+</li></ul>
+
+<h3 id="label-Tutorial-3A">Tutorial:</h3>
+
+<p>NOTE: The command “vagrant up” can took 1 hour to run.</p>
+
+<p>Basicaly you have to run the following commands:</p>
+
+<pre class="code ruby"><code class="ruby">~$ git clone https://github.com/rbprado/Ruby-MongoDB-VMs.git
+~$ cd Ruby-MongoDB-VMs
+~/Ruby-MongoDB-VMs$ vagrant up
+
+Bringing machine &#39;mongodb&#39; up with &#39;virtualbox&#39; provider...
+Bringing machine &#39;develop&#39; up with &#39;virtualbox&#39; provider...
+==&gt; mongodb: Importing base box &#39;ubuntu/trusty32&#39;...
+
+[...]
+
+~/Ruby-MongoDB-VMs$ vagrant ssh develop
+~/Ruby-MongoDB-VMs$ /vagrant/lib/greetings.rb</code></pre>
+
+<h3 id="label-Access+to+the+VMs">Access to the VMs</h3>
+
+<p>The following commands grants access to the VMs:</p>
+
+<p>To access the VM mongodb:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_vagrant'>vagrant</span> <span class='id identifier rubyid_ssh'>ssh</span> <span class='id identifier rubyid_mongodb'>mongodb</span>
+</code></pre>
+
+<p>Or:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_ssh'>ssh</span> <span class='id identifier rubyid_vagrant'>vagrant</span></code></pre>
+
+<p>To access the VM develop:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_vagrant'>vagrant</span> <span class='id identifier rubyid_ssh'>ssh</span> <span class='id identifier rubyid_develop'>develop</span>
+</code></pre>
+
+<p>Or:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_ssh'>ssh</span> <span class='id identifier rubyid_vagrant'>vagrant</span></code></pre>
+<hr>
+
+<h2 id="label-Notes">Notes</h2>
+
+<p>The script greetings.rb executes a query and an insert to mongodb in
+another VM.</p>
+
+<p>The greetings.rb script must be called from the develop VM according the
+Tutorial.</p>
+<hr>
+</div></div>
+
+    <div id="footer">
+  Generated on Mon Oct 12 00:10:27 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.1).
+</div>
+
+  </body>
+</html>

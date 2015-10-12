@@ -6,8 +6,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     config.vm.box = 'ubuntu/trusty32'
     config.vm.box_url = 'https://vagrantcloud.com/ubuntu/trusty32'
-    config.vm.boot_timeout = 1000
+    config.vm.boot_timeout = 1000 # If your computer have poor resources, should need it
 
+    # VM mongodb, setup a json database
     config.vm.define :mongodb do |mongodb|
         mongodb.vm.network :private_network, ip: '192.168.2.3'
         mongodb.vm.network :forwarded_port, host: 27017, guest: 27017
@@ -23,8 +24,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         end
         mongodb.vm.provision :shell, :inline => 'if [[ ! -f /apt-get-run ]]; then apt-get update && sudo touch /apt-get-run; fi'
         mongodb.vm.provision :shell, :inline => 'apt-get -y install mongodb-server'
-        mongodb.vm.provision :shell, :inline => 'sed -i s/"bind_ip = .*"/"bind_ip = 0.0.0.0"/ /etc/mongodb.conf'
-        mongodb.vm.provision :shell, :inline => 'service mongodb restart'
+        mongodb.vm.provision :shell, :inline => 'sed -i s/"bind_ip = .*"/"bind_ip = 0.0.0.0"/ /etc/mongodb.conf' # Allow others to acess the db
+        mongodb.vm.provision :shell, :inline => 'service mongodb restart' # Needed due the above command
 
     end
 
@@ -37,9 +38,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
          v.customize ['modifyvm', :id, '--memory', 1024]
         end
         develop.vm.provision :shell, :inline => 'if [[ ! -f /apt-get-run  ]]; then apt-get update && sudo touch /apt-get-run; fi'
-        develop.vm.provision :shell, path: 'install-rvm.sh', args: 'stable', privileged: false # https://rvm.io/integration/vagrant
-        develop.vm.provision :shell, path: 'install-ruby.sh', args: '1.9.3', privileged: false
-        develop.vm.provision :shell, path: 'install-ruby.sh', args: '2.2.3', privileged: false # Latest ruby stable
+        develop.vm.provision :shell, path: 'scripts/install-rvm.sh', args: 'stable', privileged: false # https://rvm.io/integration/vagrant
+        develop.vm.provision :shell, path: 'scripts/install-ruby.sh', args: '1.9.3', privileged: false # Problems to install gem mongo without this ver
+        develop.vm.provision :shell, path: 'scripts/install-ruby.sh', args: '2.2.3', privileged: false # Latest ruby stable
         develop.vm.provision :shell, :inline => 'gem install mongo', privileged: false
     end
 

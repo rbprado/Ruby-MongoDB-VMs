@@ -45,7 +45,7 @@ Basicaly you have to run the following commands:
     [...]
 
     ~/Ruby-MongoDB-VMs$ vagrant ssh develop
-    ~/Ruby-MongoDB-VMs$ /vagrant/greetings.rb
+    ~/Ruby-MongoDB-VMs$ /vagrant/lib/greetings.rb
 
 ### Access to the VMs
 
@@ -72,7 +72,7 @@ Or:
 ## Notes
 
 The script greetings.rb executes a query and an insert to
-the database mongodb in another VM.
+mongodb in another VM.
 
 The greetings.rb script must be called from the develop VM
 according the Tutorial.
