@@ -30,7 +30,7 @@ stored in the database.
 
 ### Tutorial:
     
-NOTE: The command "vagrant up" can took 1 hour to run.
+NOTE: The command "vagrant up" can take 1 hour to run.
 
 Basicaly you have to run the following commands:
     
