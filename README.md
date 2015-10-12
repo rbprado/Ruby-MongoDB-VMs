@@ -88,6 +88,6 @@ interacts with the database.
 The scripts folder stores the scripts to installation of 
 Ruby and RVM according with: https://rvm.io/integration/vagrant
 
-The lib folder stores the Ruby developed here.
+The lib folder stores the Ruby file developed here.
 
 ---
