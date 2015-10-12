@@ -148,11 +148,27 @@ another VM.</p>
 
 <p>The greetings.rb script must be called from the develop VM according the
 Tutorial.</p>
+
+<p>The Vagrantfile creates 2 VMs:</p>
+<ul><li>
+<p>A database VM, MongoDB, nosql all in json.</p>
+</li><li>
+<p>A develop VM, with Ruby and RVM.</p>
+</li></ul>
+
+<p>From the develop VM is possible to run the ruby app which interacts with
+the database.</p>
+
+<p>The scripts folder stores the scripts to installation of Ruby and RVM
+according with: <a
+href="https://rvm.io/integration/vagrant">rvm.io/integration/vagrant</a></p>
+
+<p>The lib folder stores the Ruby developed here.</p>
 <hr>
 </div></div>
 
     <div id="footer">
-  Generated on Mon Oct 12 00:20:39 2015 by
+  Generated on Mon Oct 12 00:37:09 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.1).
 </div>

@@ -77,4 +77,17 @@ mongodb in another VM.
 The greetings.rb script must be called from the develop VM
 according the Tutorial.
 
+The Vagrantfile creates 2 VMs:
+
+ - A database VM, MongoDB, nosql all in json.
+ - A develop VM, with Ruby and RVM.
+
+From the develop VM is possible to run the ruby app which 
+interacts with the database.
+
+The scripts folder stores the scripts to installation of 
+Ruby and RVM according with: https://rvm.io/integration/vagrant
+
+The lib folder stores the Ruby developed here.
+
 ---
