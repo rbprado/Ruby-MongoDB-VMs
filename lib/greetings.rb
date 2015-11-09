@@ -74,5 +74,3 @@ class Greetings
     end
 
 end
-
-Greetings.new

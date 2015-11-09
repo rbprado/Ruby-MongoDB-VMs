@@ -1,10 +1,7 @@
 # Vagrantfile for MongoDB VM and Ruby 2.2.3 VM
 
-This project uses Vagrant to mount and deploy a environment
-according the request of Paulo Schreiner from Instituto de
-Pesquisas Eldorado:
-
-The goal is to create a Vagrantfile that spins up two machines:
+This project uses Vagrant to mount and deploy a environment, the 
+goal is to create a Vagrantfile that spins up two machines:
 
  - Development machine, with the latest version of Ruby installed.
  - A second machine with a database of your choice.
@@ -45,7 +42,7 @@ Basicaly you have to run the following commands:
     [...]
 
     ~/Ruby-MongoDB-VMs$ vagrant ssh develop
-    ~/Ruby-MongoDB-VMs$ /vagrant/lib/greetings.rb
+    ~/Ruby-MongoDB-VMs$ /vagrant/scripts/greetings.rb
 
 ### Access to the VMs
 
@@ -88,6 +85,6 @@ interacts with the database.
 The scripts folder stores the scripts to installation of 
 Ruby and RVM according with: https://rvm.io/integration/vagrant
 
-The lib folder stores the Ruby file developed here.
+The lib folder stores the Ruby file developed.
 
 ---
